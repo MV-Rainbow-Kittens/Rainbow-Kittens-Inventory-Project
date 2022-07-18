@@ -4,7 +4,13 @@ function Admin () {
 
     return (
         <div>
-            <p>test admin</p>
+            <div>
+                <button>add</button>
+                <p>❌</p>
+            </div>
+            <div className="body">
+                
+            </div>
         </div>
     )
 }
