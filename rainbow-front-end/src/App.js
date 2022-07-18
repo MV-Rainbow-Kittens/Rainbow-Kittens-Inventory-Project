@@ -5,6 +5,7 @@ import Search from './components/Search';
 import View from './components/View';
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import PageNotFound from './components/PageNotFound';
+import Admin from './components/Amin';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path='/home' element={<Home />} />
             <Route path='/search' element={<Search />} />
             <Route path='/view' element={<View />} />
+            <Route path='/admin' element={<Admin />} />
           </Routes>
       </BrowserRouter>
     </div>
