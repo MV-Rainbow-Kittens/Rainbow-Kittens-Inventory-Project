@@ -5,7 +5,9 @@ import Search from './components/Search';
 import View from './components/View';
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import PageNotFound from './components/PageNotFound';
-import Admin from './components/Amin';
+import Admin from './components/Admin';
+import Update from './components/Update';
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
             <Route path='/search' element={<Search />} />
             <Route path='/view' element={<View />} />
             <Route path='/admin' element={<Admin />} />
+            <Route path='/update/:id' element={<Update />} />
           </Routes>
       </BrowserRouter>
     </div>
