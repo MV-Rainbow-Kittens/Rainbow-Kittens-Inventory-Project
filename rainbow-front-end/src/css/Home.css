@@ -1,0 +1,32 @@
+.homeProducts {
+    display: block;
+    padding: 32px;
+}
+
+.homeChild {
+    /* background-color: rgb(31, 46, 25); */
+    border: solid 1px black;
+    margin-bottom: 16px;
+    padding: 16px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.mainImage {
+    height: 100px;
+    padding: 20px 0px;
+}
+
+
+#title {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    padding: 20px 0px;
+}
+
