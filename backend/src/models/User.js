@@ -7,6 +7,7 @@ const User = sequelize.define('user', {
     email: Sequelize.STRING,
     password: Sequelize.STRING,
     profile_pic: Sequelize.STRING,
+    job_title: Sequelize.STRING,
     location: Sequelize.STRING,
     avatar: Sequelize.STRING,
     projects: {
