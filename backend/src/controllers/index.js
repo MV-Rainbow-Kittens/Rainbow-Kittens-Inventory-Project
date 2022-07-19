@@ -1,7 +1,6 @@
 const sequelize = require("../db");
 const User = require("../models/User");
 
-
 /**
  * @desc Gets all users
  * @route GET /api/users
@@ -36,21 +35,44 @@ exports.getAllUsers = async (req, res) => {
  * @route DELETE /api/users/delete/:id
  */
 exports.deleteUserById = async (req, res) => {
-    const userId = req.params.id;
-    try {
-        const userToDelete = User.findByPk(userId);
-        const deteledUser = userToDelete.destroy();
+  const userId = req.params.id;
+  try {
+    const userToDelete = await User.findByPk(userId);
+    const deteledUser = await userToDelete.destroy();
 
-        res.status(200).json({
-            deteledUser,
-            success: true,
-            message: 'User successfully deleted'
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({
-            success: false,
-            message: `- Error: ${error.message}`
-        });
-    }
-}
+    res.status(200).json({
+      deteledUser,
+      success: true,
+      message: "User successfully deleted",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: `- Error: ${error.message}`,
+    });
+  }
+};
+
+/**
+ * @desc Creates a new user
+ * @route POST /api/users/create
+ */
+exports.createUser = async (req, res) => {
+  try {
+    const newUser = req.body;
+    const createdUser = await User.create(newUser);
+
+    res.status(200).json({
+      createdUser,
+      success: true,
+      message: "User successfully created",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: `- Error: ${error.message}`,
+    });
+  }
+};
