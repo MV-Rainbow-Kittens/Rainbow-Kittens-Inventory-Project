@@ -79,7 +79,7 @@ exports.createUser = async (req, res) => {
 
 /**
  * @desc Updates a single user by ID
- * @route POST /api/users/update/:id
+ * @route PUT /api/users/update/:id
  */
  exports.updateUser = async (req, res) => {
   try {
@@ -99,3 +99,27 @@ exports.createUser = async (req, res) => {
     });
   }
 };
+
+/**
+ * @desc Search for a user by last name
+ * @route GET /api/users/search?last_name=*insert last name here*
+ */
+exports.searchForLastName = async(req, res) => {
+  try {
+    const allUsers = await User.findAll();
+    const lastName = req.query.last_name.toLowerCase();
+    const usersFound = allUsers.filter((user) => user.last_name.toLowerCase().includes(lastName));
+
+    res.status(200).json({
+      usersFound,
+      success: true,
+      message: usersFound > 0 ? `Users with last name of ${lastName} found` : 'No matching last names'
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: `- Error: ${error.message}`,
+    });
+  }
+}
