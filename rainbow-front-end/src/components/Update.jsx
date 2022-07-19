@@ -53,19 +53,19 @@ function Update() {
             .then((res) => {
 
                 //toast is a notification that will be appearing as success once our data has been updated
-                toast.success(`Item no. ${id} have been updated`, {
-                    position: "top-center",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                // toast.success(`Item no. ${id} have been updated`, {
+                //     position: "top-center",
+                //     autoClose: 4000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                // });
                 navigate("/admin");
             })
     }
-/*  * end of handleSubmit() *  */
+    /*  * end of handleSubmit() *  */
 
 
     useEffect(() => {

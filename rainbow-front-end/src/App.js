@@ -25,6 +25,7 @@ function App() {
             <Route path='/update/:id' element={<Update />} />
           </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }
