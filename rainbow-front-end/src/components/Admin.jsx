@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-
-
+import Delete from "./Delete"
 
 function Admin () {
 
@@ -10,8 +9,26 @@ function Admin () {
 
     const navigate = useNavigate()
 
+    const [delState, setDelState] = useState(false)
+
+    const [id, setId] = useState("")
+
+    const [img, setImg] = useState("")
+
 
     const api = "http://localhost:8000/api/products";
+
+    const url = `http://localhost:8000/api/products/${id}`;
+
+    const fecthImg = () => {
+        axios.get(url)
+            .then((res) => {
+                setImg(res.data.products.image)
+            })
+    }
+
+    const image = img
+
 
     const fetch = () => {
         axios.get(api)
@@ -20,8 +37,14 @@ function Admin () {
             })
     }
 
+
+    const delePg = () => {
+        setDelState(true)
+    }
+
     useEffect(() => {
         fetch()
+        fecthImg()
     }, [])
 
 
@@ -38,10 +61,15 @@ function Admin () {
                     <input type="text" value={disp.title} readOnly/>
                     <label > Price : </label>
                     <input type="text" value={disp.price}  readOnly/>
-                    <button onClick={() => navigate(`/update/${disp.id}`)}>update</button>
-                    <button>delete</button>
+                    <button onClick={() => navigate(`/update/${disp.id}`) }>update</button>
+                    <button onClick={(e) => {
+                        e.preventDefault()
+                        delePg()
+                        setId(disp.id)
+                    }}>delete</button>
                 </div>
             )}
+            <Delete open={delState} onClose={() => setDelState(false) } id={id} navigate={navigate} image={image} />
         </div>
     )
 }
