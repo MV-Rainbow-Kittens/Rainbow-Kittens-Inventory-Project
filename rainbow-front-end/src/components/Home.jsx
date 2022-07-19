@@ -3,7 +3,6 @@ import Card from './CardComponent';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-
 function Home () {
     const [ users, setUsers ] = useState([]);
     const getUsers = async() => {
@@ -28,4 +27,4 @@ function Home () {
     )
 }
 
-export default Home
+export default Home;
