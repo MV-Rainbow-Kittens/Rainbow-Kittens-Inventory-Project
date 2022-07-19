@@ -1,13 +1,15 @@
+export default function Search() {
+    return <h1>Search</h1>
+  }
+
+
+// function Search () {
 
 
 
-function Search () {
+//     return(
+//         <div>Seach test to see if it's working</div>
+//     )
+// }
 
-
-
-    return(
-        <div>Seach test to see if it's working</div>
-    )
-}
-
-export default Search
+// export default Search

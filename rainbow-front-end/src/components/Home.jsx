@@ -1,12 +1,12 @@
+export default function Home() {
+    return <h1>Home</h1>
+  }
 
 
+// function Home () {
+//     return (
+//         <h1>Home</h1>
+//     )
+// }
 
-function Home () {
-
-
-    return (
-        <div>Home test to see if it's working</div>
-    )
-}
-
-export default Home
+// export default Home
