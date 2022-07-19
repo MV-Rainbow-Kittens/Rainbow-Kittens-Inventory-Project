@@ -29,8 +29,8 @@ function Admin () {
     return (
         <div>
             <div>
-                <button>add</button>
-                <p>❌</p>
+                <button onClick={() => navigate('/add')}>add</button>
+                <p onClick={() => navigate('/')}>❌</p>
             </div>
             {apiData.map( disp => 
                 <div key={disp.id}>

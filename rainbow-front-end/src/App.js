@@ -8,6 +8,7 @@ import PageNotFound from './components/PageNotFound';
 import Admin from './components/Admin';
 import Update from './components/Update';
 import { ToastContainer } from 'react-toastify';
+import Add from './components/Add';
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/view' element={<View />} />
             <Route path='/admin' element={<Admin />} />
             <Route path='/update/:id' element={<Update />} />
+            <Route path='/add' element={<Add />} />
           </Routes>
       </BrowserRouter>
       <ToastContainer />
