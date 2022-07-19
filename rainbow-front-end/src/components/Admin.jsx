@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom"
 
 
 
 function Admin () {
 
     const [apiData, setDataApi] = useState([])
+
+    const navigate = useNavigate()
 
 
     const api = "http://localhost:8000/api/products";
@@ -22,7 +24,6 @@ function Admin () {
         fetch()
     }, [])
 
-    console.log(apiData);
 
 
     return (
@@ -37,7 +38,7 @@ function Admin () {
                     <input type="text" value={disp.title} readOnly/>
                     <label > Price : </label>
                     <input type="text" value={disp.price}  readOnly/>
-                    <button>update</button>
+                    <button onClick={() => navigate(`/update/${disp.id}`)}>update</button>
                     <button>delete</button>
                 </div>
             )}
