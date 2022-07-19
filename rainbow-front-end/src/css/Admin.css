@@ -1,0 +1,64 @@
+
+
+.headAdm{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    margin-bottom: 150px;
+}
+
+#xAdmin{
+    font-size: 30px;
+    cursor: pointer;
+    color: red;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+#xAdmin:hover{
+    border: 2px solid;
+    background-color: red;
+    color: white;
+}
+
+#addAdmin{
+    padding: 0px 10px;
+    border-radius: 5px;
+    background-color: darkgreen;
+    color: aqua;
+}
+#addAdmin:hover{
+    background-color: black;
+    color: white;
+}
+
+.adDataDiv{
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    height: 50px;
+    color: rgb(29, 28, 28);
+}
+
+/* .inputClass{
+    margin-right: 20px;
+} */
+
+.labelClass{
+    margin-right: 10px;
+    margin-left: 20px;
+    
+}
+
+.buttonClass{
+    margin-left: 10px;
+}
+
+#adBtnDiv{
+    /* margin-left: 50px; */
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+
