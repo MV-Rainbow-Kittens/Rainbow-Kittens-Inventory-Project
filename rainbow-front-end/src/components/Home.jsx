@@ -1,48 +1,30 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "../css/Home.css"
-function Home() {
-    const url = "http://localhost:8000/api/products";
+import '../css/Home.css';
+import Card from './CardComponent';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-    const [api, setApi] = useState([]);
-    console.log(api);
-
-    // const navigate = useNavigate();
-
-    const stylingComp = {
-        textDecoration: "none",
-        color: "black",
-    };
-
-    const fetch = () => {
-        axios.get(url).then((res) => {
-            setApi(res.data.products);
-        });
-    };
+function Home () {
+    const [ users, setUsers ] = useState([]);
+    const getUsers = async() => {
+        const res = await fetch('http://localhost:8000/api/users');
+        const data = await res.json();
+        const { users } = data;
+        setUsers(users);
+    }
 
     useEffect(() => {
-        fetch();
+        getUsers()
     }, []);
 
     return (
-        <div className="homeProducts">
-            {api.map((data) => (
-                <Link to={`/view/${data.id}`} style={stylingComp}>
-                    <div key={data.id} className="homeChild">
-                        <div key={data.id}>
-                            <p id="title">{data.title}</p>
-                            <img src={data.image} className="mainImage" />
-                            <div>
-                                <h3>Price: ${data.price}</h3>
-                                {/* <h3>Ratings: {data.rating.rate}</h3> */}
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-            ))}
+        <div className='container'>
+            <h1>Home</h1>
+            <div className='cardContainer'>
+                { users.length > 0 ? users.map((user) => <Card key={user.id} user={user} />) : 'Loading...'}
+            </div>
         </div>
-    );
+    
+    )
 }
 
 export default Home;
