@@ -76,3 +76,26 @@ exports.createUser = async (req, res) => {
     });
   }
 };
+
+/**
+ * @desc Updates a single user by ID
+ * @route POST /api/users/update/:id
+ */
+ exports.updateUser = async (req, res) => {
+  try {
+    const userToUpdate = await User.findByPk(req.params.id);
+    const updatedProduct = await userToUpdate.update(req.body);
+
+    res.status(200).json({
+      updatedProduct,
+      success: true,
+      message: "User successfully updated",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: `- Error: ${error.message}`,
+    });
+  }
+};
