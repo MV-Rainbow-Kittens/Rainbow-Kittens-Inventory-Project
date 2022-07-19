@@ -1,4 +1,3 @@
-const sequelize = require("../db");
 const User = require("../models/User");
 
 /**
@@ -12,13 +11,13 @@ exports.getAllUsers = async (req, res) => {
     if (!users) {
       res.status(400).json({
         success: false,
-        message: "No products found",
+        message: "No users found",
       });
     } else {
       res.status(200).json({
         users,
         success: true,
-        message: "All products found",
+        message: "All users found",
       });
     }
   } catch (error) {
@@ -113,7 +112,7 @@ exports.searchForLastName = async(req, res) => {
     res.status(200).json({
       usersFound,
       success: true,
-      message: usersFound > 0 ? `Users with last name of ${lastName} found` : 'No matching last names'
+      message: usersFound.length > 0 ? `Users with last name of ${lastName} found` : 'No matching last names'
     });
   } catch (error) {
     console.log(error);
@@ -123,3 +122,32 @@ exports.searchForLastName = async(req, res) => {
     });
   }
 }
+
+/**
+ * @desc Get single user by ID
+ * @route GET /api/users/:id
+ */
+ exports.getSingleUser = async (req, res) => {
+  try {
+    const singleUser = await User.findByPk(req.params.id);
+
+    if (!singleUser) {
+      res.status(400).json({
+        success: false,
+        message: "No user found",
+      });
+    } else {
+      res.status(200).json({
+        singleUser,
+        success: true,
+        message: "User found",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: `- Error: ${error.message}`,
+    });
+  }
+};
