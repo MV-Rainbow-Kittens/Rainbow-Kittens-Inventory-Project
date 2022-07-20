@@ -51,6 +51,7 @@ function Admin() {
 
     return (
         <div className="adminCont">
+        <div className="admin_nav">Admin Page</div>
             <div className="headAdm">
                 <button id="addAdmin" onClick={() => navigate('/add')}>add</button>
                 <h1 onClick={() => navigate('/')} id="xAdmin"><strong>X</strong></h1>
@@ -58,7 +59,7 @@ function Admin() {
             {apiData.map(disp =>
                 <div key={disp.id} className="adDataDiv">
                     <from id="form">
-                        <labe className="labelClass">Title : </labe>
+                        <label className="labelClass">Title : </label>
                         <input type="text" value={disp.title} readOnly className="inputClass" />
                         <label className="labelClass" > Price : </label>
                         <input type="text" value={disp.price} readOnly className="inputClass" />
