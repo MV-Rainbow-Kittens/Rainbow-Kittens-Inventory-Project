@@ -1,13 +1,9 @@
+import React from "react";
 
 
+function Search() {
+    return <div className="search_nav"> THIS IS THE SEARCH PAGE</div>;
+  }
+  
+  export default Search;
 
-function Search () {
-
-
-
-    return(
-        <div>Search test to see if it's working</div>
-    )
-}
-
-export default Search
