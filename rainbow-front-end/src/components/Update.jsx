@@ -129,7 +129,7 @@ function Update() {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} />
+                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Password</label>
