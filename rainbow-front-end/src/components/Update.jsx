@@ -20,6 +20,7 @@ function Update() {
     /* * api end here * */
 
     //States
+
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
@@ -35,6 +36,7 @@ function Update() {
     //This function is only fetching data and passing their value to the states
     //So that our form will have values  that will need to be updated
 
+    
     /* * fetch function end here * */
     const getUser = async () => {
         const res = await fetch(api);
@@ -47,8 +49,12 @@ function Update() {
         setLocation(data.singleUser.location);
         setAvatar(data.singleUser.avatar);
         setPassword(data.singleUser.password);
-        setProject(data.singleUser.projects);
+
     };
+
+        // setProject(data.singleUser.projects);
+    }
+
 
     const updateUser = async (updatedUser) => {
         try {
@@ -71,6 +77,7 @@ function Update() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedUser = {
+
             first_name,
             last_name,
             email,
@@ -82,6 +89,7 @@ function Update() {
         };
         updateUser(updatedUser);
     };
+
     /*  * end of handleSubmit() *  */
 
     useEffect(() => {
@@ -104,6 +112,7 @@ function Update() {
                             </label>
                             <input type="text" readOnly value={id} />
                         </div>
+
                         <div className="input-box-update">
                             <label className="detailsUp">First Name</label>
                             <input
@@ -123,6 +132,7 @@ function Update() {
                                     setLName(e.target.value);
                                 }}
                             />
+
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Email</label>
@@ -134,6 +144,7 @@ function Update() {
                                 }}
                             />
                         </div>
+
                         <div className="input-box-update">
                             <label className="detailsUp">Picture</label>
                             <input
@@ -153,6 +164,7 @@ function Update() {
                                     setJob(e.target.value);
                                 }}
                             />
+
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Avatar</label>
@@ -174,10 +186,11 @@ function Update() {
                                 }}
                             />
                         </div>
-                        {/* <div className='input-box-update'>
+                         {/* <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
                         </div> */}
+
                         {/* {projects.map(proj => 
                             <div className='input-box-update'>
                                 <label>Projects :  </label>
@@ -194,6 +207,7 @@ function Update() {
                                     setPassword(e.target.value);
                                 }}
                             />
+
                         </div>
                     </div>
                     <button className="buttonUpSave">Save</button>

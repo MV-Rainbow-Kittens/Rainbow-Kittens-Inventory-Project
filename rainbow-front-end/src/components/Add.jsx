@@ -72,6 +72,7 @@ function Add() {
                             </label>
                             <input type="text" readOnly />
                         </div>
+
                         <div className="input-box-update">
                             <label className="detailsUp">First Name</label>
                             <input
@@ -91,6 +92,7 @@ function Add() {
                                     setLName(e.target.value);
                                 }}
                             />
+
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Email</label>
@@ -102,6 +104,7 @@ function Add() {
                                 }}
                             />
                         </div>
+
                         <div className="input-box-update">
                             <label className="detailsUp">Picture</label>
                             <input
@@ -121,6 +124,7 @@ function Add() {
                                     setJob(e.target.value);
                                 }}
                             />
+
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Avatar</label>
@@ -142,16 +146,11 @@ function Add() {
                                 }}
                             />
                         </div>
-                        <div className="input-box-update">
-                            <label className="detailsUp">Project</label>
-                            <input
-                                type="text"
-                                value={project}
-                                onChange={(e) => {
-                                    setProject(e.target.value);
-                                }}
-                                disabled
-                            />
+
+                        <div className='input-box-update'>
+                            <label className='detailsUp'>Project</label>
+                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled />
+
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Password</label>
@@ -176,4 +175,6 @@ function Add() {
     );
 }
 
+
 export default Add;
+

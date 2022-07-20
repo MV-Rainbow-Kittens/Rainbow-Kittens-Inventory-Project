@@ -57,6 +57,7 @@ function Admin() {
             {apiData.map((disp) => (
                 <div key={disp.id} className="adDataDiv">
                     <from id="form">
+
                         <label className="labelClass">First Name : </label>
                         <input
                             type="text"
@@ -71,6 +72,7 @@ function Admin() {
                             readOnly
                             className="inputClass"
                         />
+
 
                         <div id="adBtnDiv">
                             <button onClick={() => navigate(`/update/${disp.id}`)}>
