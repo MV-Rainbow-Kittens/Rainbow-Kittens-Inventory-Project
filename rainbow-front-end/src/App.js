@@ -15,10 +15,10 @@ import Navbar from './components/Navbar';
 
 function App() {
 
-  const stylingComp = {
-    textDecoration: "none",
-    color: "white",
-  };
+  // const stylingComp = {
+  //   textDecoration: "none",
+  //   color: "white",
+  // };
 
   return (
     <div className="App">
@@ -30,7 +30,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />
             <Route path='/search' element={<Search />} />
-            <Route path='/view' element={<View />} />
+            <Route path='/view/:id' element={<View />} />
             <Route path='/admin' element={<Admin />} />
             <Route path='/update/:id' element={<Update />} />
             <Route path='/add' element={<Add />} />
