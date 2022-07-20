@@ -67,6 +67,8 @@ function Update() {
         navigate('/admin')
     };
 
+    const upId = id
+
     //we want to use this function in the save button. Once we click we want this function tu run
     const handleSubmit = (e) => {
         e.preventDefault();
