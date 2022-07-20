@@ -7,7 +7,7 @@ const Card = (props) => {
 
     const user = props.user
     return(
-        <div className='card' onClick={() => navigate(`/view/${user.id}`)}>
+        <div className='card' onClick={() => navigate(`/view/${user.id}`)} id={user.first_name}>
             <div className='cardProfilePicture'>
                 <img src={user.profile_pic} />
             </div>
