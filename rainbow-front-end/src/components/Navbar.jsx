@@ -1,39 +1,34 @@
-// import React from 'react';
-// import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
-// import styled from 'styled-components';
+import React from 'react';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import "../css/Navbar.css"
 
-// const Styles = styled.div`
-//   .navbar { background-color: #222; }
-//   a, .navbar-nav, .navbar-light .nav-link {
-//     color: #9FFFCB;
-//     &:hover { color: white; }
-//   }
-//   .navbar-brand {
-//     font-size: 1.4em;
-//     color: #9FFFCB;
-//     &:hover { color: white; }
-//   }
-//   .form-center {
-//     position: absolute !important;
-//     left: 25%;
-//     right: 25%;
-//   }
-// `;
+function Navbar() {
+    return (
+      <nav className="nav">
+        <Link to="/" className="site-title">
+          Site Name
+        </Link>
+        <ul>
+            <CustomLink to="/">Home</CustomLink>
+            <CustomLink to="/about">About</CustomLink>
+            <CustomLink to="/search">Search</CustomLink>
+            <CustomLink to="/admin">Admin</CustomLink>
+        </ul>
+      </nav>
+    )
+  }
+  
+function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+  
+    return (
+      <li className={isActive ? "active" : ""}>
+        <Link to={to} {...props}>
+          {children}
+        </Link>
+      </li>
+    )
+  }
 
-// export const NavigationBar = () => (
-//   <Styles>
-//     <Navbar expand="lg">
-//       <Navbar.Brand href="/">Tutorial</Navbar.Brand>
-//       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-//       <Form className="form-center">
-//         <FormControl type="text" placeholder="Search" className="" />
-//       </Form>
-//       <Navbar.Collapse id="basic-navbar-nav">
-//         <Nav className="ml-auto">
-//           <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item> 
-//           <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
-//         </Nav>
-//       </Navbar.Collapse>
-//     </Navbar>
-//   </Styles>
-// )
+export default Navbar
