@@ -11,7 +11,7 @@
     max-width: 700px;
     width: 100%;
     background: #fff;
-    padding: 25px 30px;
+    padding: 25px 70px;
     border-radius: 5px;
 }
 
@@ -68,4 +68,21 @@ form .user-details-update .input-box-update {
     border-color: #9b59b6;
 }
 
+.button-upD{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonUpSave{
+    padding: 0px 10px;
+    border-radius: 5px;
+    background-color: rgb(91, 211, 47);
+    color: rgb(234, 240, 228);
+}
+.buttonUpCanc{
+    padding: 0px 10px;
+    border-radius: 5px;
+    background-color: rgb(225, 16, 16);
+    color: rgb(234, 240, 228);
+}
 

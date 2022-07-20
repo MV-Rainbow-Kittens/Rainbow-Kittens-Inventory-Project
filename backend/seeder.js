@@ -12,9 +12,7 @@ const seed = async () => {
 
   const userSeedPath = path.join(
     __dirname,
-    src,
-    data,
-    '/userData.json'
+    'src/data/userData.json'
   ); //gets the path to userData.json
 
   //asynchronously reads the content in this file
