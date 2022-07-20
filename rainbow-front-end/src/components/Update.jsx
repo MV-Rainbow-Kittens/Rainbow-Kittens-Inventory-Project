@@ -58,7 +58,7 @@ function Update() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(updatedUser),
-                
+
             });
             const data = await res.json();
         } catch (error) {
@@ -186,7 +186,6 @@ function Update() {
                                 <input type="text" value={proj.projects}  />
                             </div>
                             )} */}
-
                         <div className="input-box-update">
                             <label className="detailsUp">Password</label>
                             <input
@@ -198,12 +197,12 @@ function Update() {
                             />
                         </div>
                     </div>
-                    <button className="buttonUpSave">Save</button>
+                    <div className="button-upD">
+                        <button className="buttonUpSave">Save</button>
+                        <button className="buttonUpCanc" onClick={() => navigate("/admin")}>Cancel</button>
+                    </div>
                 </form>
                 <div className="button-upD">
-                    <button className="buttonUpCanc" onClick={() => navigate("/admin")}>
-                        Cancel
-                    </button>
                 </div>
             </div>
         </div>
