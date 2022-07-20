@@ -11,16 +11,22 @@ function Home () {
         const { users } = data;
         setUsers(users);
     }
+    const usersAscending = [...users].sort((a,b) => a.first_name > b.first_name ? 1 : -1);
+    console.log(usersAscending)
 
     useEffect(() => {
-        getUsers()
+        getUsers();
     }, []);
 
     return (
         <div className='container'>
-            {/* <h1>Home</h1> */}
+            <div>
+                <ul>
+                    <li>A-Z</li>
+                </ul>
+            </div>
             <div className='cardContainer'>
-                { users.length > 0 ? users.map((user) => <Card key={user.id} user={user} />) : 'Loading...'}
+                { usersAscending.length > 0 ? usersAscending.map((user) => <Card key={user.id} user={user} />) : 'Loading...'}
             </div>
         </div>
     
@@ -28,4 +34,3 @@ function Home () {
 }
 
 export default Home;
-

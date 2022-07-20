@@ -22,23 +22,22 @@ function Update() {
     /* * api end here * */
 
     //States
-    const [first_name, setFName] = useState("")
-    const [last_name, setLName] = useState("")
+    const [fName, setFName] = useState("")
+    const [lName, setLName] = useState("")
     const [email, setEmail] = useState("")
-    const [profile_pic, setImage] = useState("")
-    const [job_title, setJob] = useState("")
+    const [image, setImage] = useState("")
+    const [job, setJob] = useState("")
     const [location, setLocation] = useState("")
     const [avatar, setAvatar] = useState("")
     const [password, setPassword] = useState("")
-    // const [projects, setProject] = useState("")
+    const [project, setProject] = useState("")
 
-
-    
     /* * states end here * */
 
     //This function is only fetching data and passing their value to the states
     //So that our form will have values  that will need to be updated
 
+    
     /* * fetch function end here * */
     const getUser = async () => {
         const res = await fetch(api);
@@ -71,13 +70,11 @@ function Update() {
 
     //we want to use this function in the save button. Once we click we want this function tu run
     const handleSubmit = (e) => {
-
         e.preventDefault();
         const updatedUser = {
             first_name, last_name, email, password, profile_pic, job_title, location, avatar
         }
         updateUser(updatedUser);
-
     }
     /*  * end of handleSubmit() *  */
 
@@ -104,11 +101,11 @@ function Update() {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>First Name</label>
-                            <input type="text" value={first_name} onChange={(e) => { setFName(e.target.value) }} />
+                            <input type="text" value={fName} onChange={(e) => { setFName(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Last Name</label>
-                            <input type="text" value={last_name} onChange={(e) => { setLName(e.target.value) }} />
+                            <input type="text" value={lName} onChange={(e) => { setLName(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Email</label>
@@ -116,11 +113,11 @@ function Update() {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Picture</label>
-                            <input type="text" value={profile_pic} onChange={(e) => { setImage(e.target.value) }} />
+                            <input type="text" value={image} onChange={(e) => { setImage(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Job Title</label>
-                            <input type="text" value={job_title} onChange={(e) => { setJob(e.target.value) }} />
+                            <input type="text" value={job} onChange={(e) => { setJob(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Avatar</label>
@@ -132,10 +129,8 @@ function Update() {
                         </div>
                          {/* <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
                         </div> */}
-
                         <div className='input-box-update'>
                             <label className='detailsUp'>Password</label>
                             <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} />
