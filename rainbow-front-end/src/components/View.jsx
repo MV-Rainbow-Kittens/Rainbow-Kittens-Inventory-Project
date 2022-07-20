@@ -67,7 +67,7 @@ function View() {
                     <strong><h1>{job_title}</h1></strong>
                 </div>
                 <div className="viewClass">
-                    <div className="vImgDiv">
+                    <div className=".cardProfilePicture cViewPic">
                         <img src={profile_pic} alt='#' className="vImg" />
                     </div>
                     <div>
