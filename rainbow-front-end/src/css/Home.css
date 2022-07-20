@@ -24,6 +24,7 @@
     height: 400px;
     margin: 2rem;
     box-shadow: 5px 5px 5px gray;
+    cursor: pointer;
 }
 .cardProfilePicture{
     width: 90%;
