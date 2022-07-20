@@ -52,8 +52,7 @@ function Update() {
 
     };
 
-        // setProject(data.singleUser.projects);
-    }
+        
 
 
     const updateUser = async (updatedUser) => {
@@ -78,7 +77,7 @@ function Update() {
         e.preventDefault();
         const updatedUser = {
 
-            first_name: fName, last_name: lName, email, password, profile_pic: image, job_title: job, location, avatar
+            first_name, last_name, email, password, profile_pic, job_title, location, avatar
         }
         updateUser(updatedUser);
     };
