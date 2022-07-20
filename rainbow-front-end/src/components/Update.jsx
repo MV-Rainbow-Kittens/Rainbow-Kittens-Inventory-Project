@@ -18,15 +18,20 @@ function Update() {
     /* * end of navigate * */
 
     //Our api
-    const api = `http://localhost:8000/api/products/${id}`;
+    const api = `http://localhost:8000/api/users${id}`;
     /* * api end here * */
 
     //States
     const [upId, setUpId] = useState("")
-    const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
-    const [description, setDescription] = useState("")
+    const [fName, setFName] = useState("")
+    const [lName, setLName] = useState("")
+    const [email, setEmail] = useState("")
     const [image, setImage] = useState("")
+    const [job, setJob] = useState("")
+    const [location, setLocation] = useState("")
+    const [avatar, setAvatar] = useState("")
+    const [password, setPassword] = useState("")
+
     /* * states end here * */
 
     //This function is only fetching data and passing their value to the states
@@ -35,11 +40,7 @@ function Update() {
     const fetch = () => {
         axios.get(api)
             .then((res) => {
-                setUpId(res.data.product.id)
-                setDescription(res.data.product.description)
-                setImage(res.data.product.image)
-                setTitle(res.data.product.title)
-                setPrice(res.data.product.price)
+
             })
     }
     /* * fetch function end here * */
@@ -48,10 +49,16 @@ function Update() {
     //we want to use this function in the save button. Once we click we want this function tu run
     const handleSubmit = () => {
         const upUrl = `http://localhost:8000/api/products/update/${id}`;
-        const credentials = { title, image, description, price }
+        const credentials = { fName, image, lName, email, job, location, avatar }
         axios.put(upUrl, credentials)
             .then((res) => {
-
+                setFName(res.data.users.first_name)
+                setLName(res.data.users.last_name)
+                setEmail(res.data.users.email)
+                setJob(res.data.users.job_title)
+                setLocation(res.data.users.location)
+                setAvatar(res.data.users.avatar)
+                setPassword(res.data.users.password)
                 //toast is a notification that will be appearing as success once our data has been updated
                 // toast.success(`Item no. ${id} have been updated`, {
                 //     position: "top-center",
@@ -89,19 +96,19 @@ function Update() {
                             <input type="text" readOnly value={upId} />
                         </div>
                         <div className='input-box-update'>
-                            <label className='detailsUp'>Title</label>
-                            <input type="text" value={title} onChange={(e) => { setTitle(e.target.value) }} />
+                            <label className='detailsUp'>First Name</label>
+                            <input type="text" value={fName} onChange={(e) => { setFName(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
-                            <label className='detailsUp'>Price</label>
-                            <input type="number" value={price} onChange={(e) => { setPrice(e.target.value) }} />
+                            <label className='detailsUp'>Last Name</label>
+                            <input type="number" value={lName} onChange={(e) => { setLName(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
-                            <label className='detailsUp'>Description</label>
-                            <input type="text" value={description} onChange={(e) => { setDescription(e.target.value) }} />
+                            <label className='detailsUp'>Email</label>
+                            <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
-                            <label className='detailsUp'>Image</label>
+                            <label className='detailsUp'>Profile</label>
                             <input type="text" value={image} onChange={(e) => { setImage(e.target.value) }} />
                         </div>
                     </div>
