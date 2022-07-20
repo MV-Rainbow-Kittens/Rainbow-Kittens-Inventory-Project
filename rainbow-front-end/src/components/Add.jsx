@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Update.css";
@@ -21,31 +19,45 @@ function Add () {
     const [location, setLocation] = useState("")
     const [avatar, setAvatar] = useState("")
     const [password, setPassword] = useState("")
-    const [project, setProject] = useState("")
+    const [project, setProject] = useState([])
 
 
-
-    const handleSubmit = () => {
-        const upUrl = `http://localhost:8000/api/users/create`;
-        const credentials = { fName, image, lName, email, job, location, avatar,password,project }
-        axios.post(upUrl, credentials)
-            .then((res) => {
-
-                // });
-                navigate("/admin");
-            })
+    const addUser = async (newUser) => {
+        try {
+            const res = await fetch('http://localhost:8000/api/users/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            });
+            const data = await res.json();
+            console.log(data);
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
-    useEffect(() => {
-
-    })
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newUser = { first_name: fName, last_name: lName, email, password, profile_pic: image, job_title: job, location, avatar, projects: project };
+        addUser(newUser);
+        setFName('');
+        setLName('');
+        setEmail('');
+        setImage('');
+        setJob('');
+        setLocation('');
+        setAvatar('');
+        setPassword('');
+        setProject([]);
+    }
 
     return (
         <div className='bodyUp'>
             <div className='containerUp'>
                 <h1 className='titleUp'>Add</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='user-details-update'>
                         {/* <div className='input-box-update'>
                             <label className='detailsUp' id='idUp'>Id</label>
@@ -81,16 +93,16 @@ function Add () {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} />
+                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Password</label>
                             <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                         </div>
                     </div>
+                    <button className='buttonUpSave'>Save</button>
                 </form>
                 <div className='button-upD'>
-                    <button className='buttonUpSave' onClick={handleSubmit}>Save</button>
                     <button className='buttonUpCanc' onClick={() => navigate('/admin')}>Cancel</button>
                 </div>
             </div>

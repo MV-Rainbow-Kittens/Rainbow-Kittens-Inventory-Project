@@ -37,40 +37,50 @@ function Update() {
     //This function is only fetching data and passing their value to the states
     //So that our form will have values  that will need to be updated
 
-    const fetch = () => {
-        axios.get(api)
-            .then((res) => {
-                // console.log(res.data.singleUser);
-                setFName(res.data.singleUser.first_name)
-                setLName(res.data.singleUser.last_name)
-                setEmail(res.data.singleUser.email)
-                setImage(res.data.singleUser.profile_pic)
-                setJob(res.data.singleUser.job_title)
-                setLocation(res.data.singleUser.location)
-                setAvatar(res.data.singleUser.avatar)
-                setPassword(res.data.singleUser.password)
-                setProject(res.data.singleUser.projects[0])
-            })
-    }
+    
     /* * fetch function end here * */
+    const getUser = async () => {
+        const res = await fetch(api);
+        const data = await res.json();
+        setFName(data.singleUser.first_name);
+        setLName(data.singleUser.last_name);
+        setEmail(data.singleUser.email);
+        setImage(data.singleUser.profile_pic);
+        setJob(data.singleUser.job_title);
+        setLocation(data.singleUser.location);
+        setAvatar(data.singleUser.avatar);
+        setPassword(data.singleUser.password);
+        setProject(data.singleUser.projects);
+    }
 
+    const updateUser = async (updatedUser) => {
+        try {
+            const res = await fetch(`http://localhost:8000/api/users/update/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedUser)
+            });
+            const data = await res.json();
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
 
     //we want to use this function in the save button. Once we click we want this function tu run
-    const handleSubmit = () => {
-        const upUrl = `http://localhost:8000/api/users/update/${id}`;
-        const credentials = { fName, image, lName, email, job, location, avatar,password,project }
-        axios.put(upUrl, credentials)
-            .then((res) => {
-
-                // });
-                navigate("/admin");
-            })
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const updatedUser = {
+            first_name: fName, last_name: lName, email, password, profile_pic: image, job_title: job, location, avatar, projects: project
+        }
+        updateUser(updatedUser);
     }
     /*  * end of handleSubmit() *  */
 
 
     useEffect(() => {
-        fetch()
+        getUser()
     }, [])
 
     // console.log(upId);
@@ -83,7 +93,7 @@ function Update() {
         <div className='bodyUp'>
             <div className='containerUp'>
                 <h1 className='titleUp'>Update</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='user-details-update'>
                         <div className='input-box-update'>
                             <label className='detailsUp' id='idUp'>Id</label>
@@ -126,9 +136,9 @@ function Update() {
                             <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                         </div>
                     </div>
+                    <button className='buttonUpSave'>Save</button>
                 </form>
                 <div className='button-upD' >
-                    <button className='buttonUpSave' onClick={handleSubmit}>Save</button>
                     <button className='buttonUpCanc' onClick={() => navigate('/admin')}>Cancel</button>
                 </div>
             </div>
