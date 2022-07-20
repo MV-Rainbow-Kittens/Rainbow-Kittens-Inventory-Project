@@ -10,66 +10,67 @@ function Add () {
 
     const navigate = useNavigate()
 
-    const url = "http://localhost:8000/api/products/create";
+    // const url = "http://localhost:8000/api/products/create";
 
     //States
-    const [fName, setFName] = useState("")
-    const [lName, setLName] = useState("")
-    const [email, setEmail] = useState("")
-    const [image, setImage] = useState("")
-    const [job, setJob] = useState("")
-    const [location, setLocation] = useState("")
-    const [avatar, setAvatar] = useState("")
-    const [password, setPassword] = useState("")
-    const [project, setProject] = useState("")
+    const [first_name, setFName] = useState("");
+    const [last_name, setLName] = useState("");
+    const [email, setEmail] = useState("");
+    const [profile_pic, setImage] = useState("");
+    const [job_title, setJob] = useState("");
+    const [location, setLocation] = useState("");
+    const [avatar, setAvatar] = useState("");
+    const [password, setPassword] = useState("");
+    const [projects, setProject] = useState("");
 
+    // const [id , setId] = useState("")
 
 
     const handleSubmit = () => {
         const upUrl = `http://localhost:8000/api/users/create`;
-        const credentials = { fName, image, lName, email, job, location, avatar,password,project }
-        axios.post(upUrl, credentials)
-            .then((res) => {
+        const data = { first_name, profile_pic, last_name, email, job_title, location, avatar,password,projects }
 
+        axios.post(upUrl, data)
+            .then((res) => {
                 // });
-                navigate("/admin");
             })
+            navigate("/admin");
     }
 
     useEffect(() => {
-
-    })
+        // fetch()
+    }, [])
 
 
     return (
         <div className='bodyUp'>
             <div className='containerUp'>
                 <h1 className='titleUp'>Add</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='user-details-update'>
-                        {/* <div className='input-box-update'>
+                        <div className='input-box-update'>
                             <label className='detailsUp' id='idUp'>Id</label>
-                            <input type="text" readOnly value={id} />
-                        </div> */}
+                            <input type="text" readOnly  />
+                        </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>First Name</label>
-                            <input type="text" value={fName} onChange={(e) => { setFName(e.target.value) }} />
+                            <input type="text" value={first_name} onChange={(e) => { setFName(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Last Name</label>
-                            <input type="text" value={lName} onChange={(e) => { setLName(e.target.value) }} />
+                            <input type="text" value={last_name} onChange={(e) => { setLName(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Email</label>
-                            <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                            <input type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Picture</label>
-                            <input type="text" value={image} onChange={(e) => { setImage(e.target.value) }} />
+                            <input type="text" value={profile_pic} onChange={(e) => { setImage(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Job Title</label>
-                            <input type="text" value={job} onChange={(e) => { setJob(e.target.value) }} />
+                            <input type="text" value={job_title} onChange={(e) => { setJob(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Avatar</label>
@@ -81,7 +82,7 @@ function Add () {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} />
+                            <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} />
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Password</label>
@@ -90,7 +91,7 @@ function Add () {
                     </div>
                 </form>
                 <div className='button-upD'>
-                    <button className='buttonUpSave' onClick={handleSubmit}>Save</button>
+                    <button className='buttonUpSave' >Save</button>
                     <button className='buttonUpCanc' onClick={() => navigate('/admin')}>Cancel</button>
                 </div>
             </div>
