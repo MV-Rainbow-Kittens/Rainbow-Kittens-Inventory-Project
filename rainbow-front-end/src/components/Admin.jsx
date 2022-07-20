@@ -16,14 +16,14 @@ function Admin() {
     const [img, setImg] = useState("")
 
 
-    const api = "http://localhost:8000/api/products";
+    const api = "http://localhost:8000/api/users";
 
-    const url = `http://localhost:8000/api/products/${id}`;
+    const url = `http://localhost:8000/api/users/${id}`;
 
     const fecthImg = () => {
         axios.get(url)
             .then((res) => {
-                setImg(res.data.products.image)
+                setImg(res.data.users.profile_pic)
             })
     }
 
@@ -33,7 +33,7 @@ function Admin() {
     const fetch = () => {
         axios.get(api)
             .then((res) => {
-                setDataApi(res.data.products)
+                setDataApi(res.data.users)
             })
     }
 
@@ -58,10 +58,12 @@ function Admin() {
             {apiData.map(disp =>
                 <div key={disp.id} className="adDataDiv">
                     <from id="form">
-                        <labe className="labelClass">Title : </labe>
-                        <input type="text" value={disp.title} readOnly className="inputClass" />
-                        <label className="labelClass" > Price : </label>
-                        <input type="text" value={disp.price} readOnly className="inputClass" />
+                        <labe className="labelClass">First Name : </labe>
+                        <input type="text" value={disp.first_name} readOnly className="inputClass" />
+                        <labe className="labelClass">Last Name : </labe>
+                        <input type="text" value={disp.last_name} readOnly className="inputClass" />
+                        <label className="labelClass" > Email : </label>
+                        <input type="text" value={disp.email} readOnly className="inputClass" />
                         <div id="adBtnDiv">
                             <button onClick={() => navigate(`/update/${disp.id}`)}>update</button>
                             <button onClick={(e) => {
