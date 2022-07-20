@@ -94,8 +94,6 @@ function Add () {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-
-
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled />
                         </div>
                         <div className='input-box-update'>

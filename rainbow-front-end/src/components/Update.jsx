@@ -50,7 +50,7 @@ function Update() {
         setLocation(data.singleUser.location);
         setAvatar(data.singleUser.avatar);
         setPassword(data.singleUser.password);
-        setProject(data.singleUser.projects);
+        // setProject(data.singleUser.projects);
     }
 
     const updateUser = async (updatedUser) => {
@@ -72,7 +72,7 @@ function Update() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedUser = {
-            first_name: fName, last_name: lName, email, password, profile_pic: image, job_title: job, location, avatar, projects: project
+            first_name, last_name, email, password, profile_pic, job_title, location, avatar
         }
         updateUser(updatedUser);
     }
@@ -127,10 +127,10 @@ function Update() {
                             <label className='detailsUp'>Location</label>
                             <input type="text" value={location} onChange={(e) => { setLocation(e.target.value) }} />
                         </div>
-                        <div className='input-box-update'>
+                         {/* <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
-                        </div>
+                        </div> */}
                         <div className='input-box-update'>
                             <label className='detailsUp'>Password</label>
                             <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} />
