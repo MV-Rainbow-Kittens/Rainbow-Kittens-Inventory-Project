@@ -18,7 +18,7 @@ function Home () {
 
     return (
         <div className='container'>
-            <h1>Home</h1>
+            {/* <h1>Home</h1> */}
             <div className='cardContainer'>
                 { users.length > 0 ? users.map((user) => <Card key={user.id} user={user} />) : 'Loading...'}
             </div>

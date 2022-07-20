@@ -13,19 +13,33 @@ import Add from './components/Add';
 
 
 function App() {
+
+  const stylingComp = {
+    textDecoration: "none",
+    color: "white",
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
-          <Routes>
-            <Route path='/*' element={<PageNotFound />} />
-            <Route path='/' element={<Home />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='/view/:id' element={<View />} />
-            <Route path='/admin' element={<Admin />} />
-            <Route path='/update/:id' element={<Update />} />
-            <Route path='/add' element={<Add />} />
-          </Routes>
+        <div id='main-nav'>
+          <Link to='/' style={stylingComp}> <p id='logo'>logo</p> </Link>
+          <ul className='parent' >
+            <Link to='/' style={stylingComp}><li className='children'>Home</li></Link>
+            <Link to='/search' style={stylingComp}><li className='children'>Search</li></Link>
+            <Link to='admin' style={stylingComp}><li className='children'>Admin</li></Link>
+          </ul>
+        </div>
+        <Routes>
+          <Route path='/*' element={<PageNotFound />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/view/:id' element={<View />} />
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/update/:id' element={<Update />} />
+          <Route path='/add' element={<Add />} />
+        </Routes>
       </BrowserRouter>
       <ToastContainer />
     </div>

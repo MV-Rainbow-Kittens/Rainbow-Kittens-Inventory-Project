@@ -1,9 +1,13 @@
 import '../css/Home.css'
+import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
+
+    const navigate = useNavigate()
+
     const user = props.user
     return(
-        <div className='card'>
+        <div className='card' onClick={() => navigate(`/view/${user.id}`)}>
             <div className='cardProfilePicture'>
                 <img src={user.profile_pic} />
             </div>

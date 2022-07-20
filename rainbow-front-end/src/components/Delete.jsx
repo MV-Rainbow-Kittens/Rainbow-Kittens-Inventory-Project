@@ -5,7 +5,9 @@ import "../css/Delete.css";
 export default function Pop({ open, onClose, id, image, navigate }) {
     if (!open) return null;
 
-    const api = `http://localhost:8000/api/products/delete/${id}`;
+    const api = `http://localhost:8000/api/users/delete/${id}`;
+
+    const url = `http://localhost:8000/api/users/${id}`;
 
     const handleDelete = () => {
         axios.delete(api).then((res) => {
