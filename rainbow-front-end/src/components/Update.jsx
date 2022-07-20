@@ -30,7 +30,7 @@ function Update() {
     const [location, setLocation] = useState("")
     const [avatar, setAvatar] = useState("")
     const [password, setPassword] = useState("")
-    const [projects, setProject] = useState("")
+    // const [projects, setProject] = useState("")
 
 
     
@@ -51,7 +51,7 @@ function Update() {
                 setLocation(res.data.singleUser.location)
                 setAvatar(res.data.singleUser.avatar)
                 setPassword(res.data.singleUser.password)
-                setProject(res.data.singleUser.projects[0])
+                // setProject(res.data.singleUser.projects[0])
             })
     }
     /* * fetch function end here * */
@@ -60,12 +60,15 @@ function Update() {
     //we want to use this function in the save button. Once we click we want this function tu run
     const handleSubmit = (e) => {
         e.preventDefault()
-        const upUrl = `http://localhost:8000/api/users/update/:${id}`;
-        const data = { first_name, profile_pic, last_name, email, job_title, location, avatar,password,projects }
+        const upUrl = `http://localhost:8000/api/users/update/${id}`;
+        const data = {  first_name, profile_pic, last_name, email, job_title, location, avatar, password }
         axios.put(upUrl, data)
             .then((res) => {
                 // });
                 navigate("/admin");
+            })
+            .catch(error => {
+                console.log(error);
             })
     }
     /*  * end of handleSubmit() *  */
@@ -119,10 +122,11 @@ function Update() {
                             <label className='detailsUp'>Location</label>
                             <input type="text" value={location} onChange={(e) => { setLocation(e.target.value) }} />
                         </div>
-                        <div className='input-box-update'>
+                        {/* <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
                             <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} />
-                        </div>
+                        </div> */}
+                        
                         <div className='input-box-update'>
                             <label className='detailsUp'>Password</label>
                             <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} />
