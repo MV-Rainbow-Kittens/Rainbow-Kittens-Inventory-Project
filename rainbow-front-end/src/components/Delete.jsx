@@ -11,7 +11,7 @@ export default function Pop({ open, onClose, id, image, navigate }) {
 
     const handleDelete = () => {
         axios.delete(api).then((res) => {
-            toast.success(`User id no. ${id} has been deleted in the database`, {
+            toast.success(`Employee id no. ${id} has been deleted in the database`, {
                 position: "top-center",
                 autoClose: 4000,
                 hideProgressBar: false,
