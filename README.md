@@ -14,6 +14,10 @@ CSS was used to amplify the visual appeal.
 
 React was used to bring alive the funcionality of components and the site itself.
 
+Sequelize was used to call upon the database in the functions for consistency
+
+Php Admin was used to make an express server that runs on the local machine
+
 TECHNOLOGIES:
 
 Javascipt
