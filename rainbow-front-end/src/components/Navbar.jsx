@@ -6,13 +6,13 @@ function Navbar() {
     return (
       <nav className="nav">
         <Link to="/" className="site-title">
-          Site Name
+          Rainbow Kittens
         </Link>
-        <ul>
+        <ul className='navbar_list'>
             <CustomLink to="/">Home</CustomLink>
             <CustomLink to="/about">About</CustomLink>
             <CustomLink to="/search">Search</CustomLink>
-            <CustomLink to="/admin">Admin</CustomLink>
+            <CustomLink className="admin_navbar" to="/admin">Admin</CustomLink>
         </ul>
       </nav>
     )
