@@ -35,7 +35,7 @@ function Home () {
     }, []);
 
     return (
-        <div className='container'>
+        <div>
             <div className='sidenav'>
                 {alphabet.map((pair) => <a key={pair.letter} href={`#${pair.name}`} >{pair.letter}</a>)}
             </div>
