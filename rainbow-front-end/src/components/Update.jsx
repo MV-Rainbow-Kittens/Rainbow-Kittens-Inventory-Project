@@ -53,7 +53,6 @@ function Update() {
     };
 
         // setProject(data.singleUser.projects);
-    }
 
 
     const updateUser = async (updatedUser) => {
@@ -98,7 +97,7 @@ function Update() {
 
     // console.log(upId);
 
-    const count = 1
+    // const count = 1
 
     return (
         <div className="bodyUp">
@@ -112,7 +111,6 @@ function Update() {
                             </label>
                             <input type="text" readOnly value={id} />
                         </div>
-
                         <div className="input-box-update">
                             <label className="detailsUp">First Name</label>
                             <input
@@ -186,7 +184,7 @@ function Update() {
                                 }}
                             />
                         </div>
-                         {/* <div className='input-box-update'>
+                        {/* <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
                         </div> */}
@@ -221,5 +219,7 @@ function Update() {
         </div>
     );
 }
+
+
 
 export default Update;
