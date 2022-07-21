@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "../css/Update.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 
 function Update() {
     //with one of react router method we are able to grab a specific id number
@@ -51,7 +50,6 @@ function Update() {
         setPassword(data.singleUser.password);
         setProject(data.singleUser.projects);
     };
-
 
 
 
@@ -180,7 +178,7 @@ function Update() {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} disabled/>
+                            <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} disabled />
                         </div>
                         {/* {projects.map(proj => 
                             <div className='input-box-update'>

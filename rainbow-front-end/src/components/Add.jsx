@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Update.css";
 
+
 function Add() {
     const navigate = useNavigate();
 

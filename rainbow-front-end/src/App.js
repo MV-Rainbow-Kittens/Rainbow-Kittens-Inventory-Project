@@ -6,11 +6,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PageNotFound from './components/PageNotFound';
 import Admin from './components/Admin';
 import Update from './components/Update';
-import { ToastContainer } from 'react-toastify';
 import Add from './components/Add';
 import About from './components/About';
 import Navbar from './components/Navbar';
-
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
             <Route path='/about' element={<About />} />
           </Routes>
       </BrowserRouter>
-      <ToastContainer />
     </div>
   );
 }
