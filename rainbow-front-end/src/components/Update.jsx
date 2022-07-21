@@ -36,7 +36,7 @@ function Update() {
     //This function is only fetching data and passing their value to the states
     //So that our form will have values  that will need to be updated
 
-    
+
     /* * fetch function end here * */
     const getUser = async () => {
         const res = await fetch(api);
@@ -52,7 +52,7 @@ function Update() {
 
     };
 
-        
+
 
 
     const updateUser = async (updatedUser) => {
@@ -106,7 +106,6 @@ function Update() {
                             </label>
                             <input type="text" readOnly value={id} />
                         </div>
-
                         <div className="input-box-update">
                             <label className="detailsUp">First Name</label>
                             <input
@@ -126,7 +125,6 @@ function Update() {
                                     setLName(e.target.value);
                                 }}
                             />
-
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Email</label>
@@ -138,7 +136,6 @@ function Update() {
                                 }}
                             />
                         </div>
-
                         <div className="input-box-update">
                             <label className="detailsUp">Picture</label>
                             <input
@@ -158,7 +155,6 @@ function Update() {
                                     setJob(e.target.value);
                                 }}
                             />
-
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Avatar</label>
@@ -180,11 +176,10 @@ function Update() {
                                 }}
                             />
                         </div>
-                         {/* <div className='input-box-update'>
+                        {/* <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
                         </div> */}
-
                         {/* {projects.map(proj => 
                             <div className='input-box-update'>
                                 <label>Projects :  </label>
@@ -200,7 +195,6 @@ function Update() {
                                     setPassword(e.target.value);
                                 }}
                             />
-
                         </div>
                     </div>
                     <div className="button-upD">
