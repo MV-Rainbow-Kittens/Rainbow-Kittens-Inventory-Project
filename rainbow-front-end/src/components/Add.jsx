@@ -48,7 +48,7 @@ function Add() {
             avatar,
             projects: project,
         };
-        toast.success(`${fName} has been addeted to the database`, {
+        toast.success(`${fName} has been added to the database`, {
             position: "top-center",
             autoClose: 4000,
             hideProgressBar: false,
