@@ -150,7 +150,11 @@ function Add() {
 
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled />
+                            <input type="text" 
+                            value={project} 
+                            onChange={(e) => { setProject(e.target.value) }} 
+                            disabled
+                            />
 
                         </div>
                         <div className="input-box-update">
@@ -166,8 +170,8 @@ function Add() {
                     </div>
                 </form>
                 <div className="button-upD">
+                    <button className="buttonUpSave" onClick={handleSubmit}>Save</button>
                     <button className="buttonUpCanc" onClick={() => navigate("/admin")}>Cancel</button>
-                    <button className="buttonUpSave">Save</button>
                 </div>
             </div>
         </div>
