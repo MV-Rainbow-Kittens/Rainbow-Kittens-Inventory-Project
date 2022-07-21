@@ -168,6 +168,7 @@ function Add() {
                             />
                         </div>
                     </div>
+                    <button className="buttonUpSave">Save</button>
                 </form>
                 <div className="button-upD">
                     <button className="buttonUpSave" onClick={handleSubmit}>Save</button>
