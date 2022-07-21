@@ -18,15 +18,17 @@ function Admin() {
 
     const api = "http://localhost:8000/api/users";
 
-    const url = `http://localhost:8000/api/users/${id}`;
+    const url = `http://localhost:8000/api/users/${40}`;
 
     const fecthImg = () => {
         axios.get(url).then((res) => {
-            setImg(res.data.users.profile_pic);
-        });
+            setImg(res.data.singleUser.profile_pic)
+        })
     };
 
     const image = img;
+
+    console.log(image);
 
     const fetch = () => {
         axios.get(api).then((res) => {

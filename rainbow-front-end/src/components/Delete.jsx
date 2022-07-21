@@ -25,6 +25,8 @@ export default function Pop({ open, onClose, id, image, navigate }) {
         });
     };
 
+    console.log(image);
+
     return (
         <div onClick={onClose} className="overlay">
             <div className="modalContainer">
@@ -35,7 +37,7 @@ export default function Pop({ open, onClose, id, image, navigate }) {
                     </p>
                     <div className="content">
                         <h1>Are you sure?</h1>
-                        <p>Item {id} will be gone forever</p>
+                        <p>The user id no : {id} will be gone forever</p>
                     </div>
                     <div className="btnContainer">
                         <button className="btnPrimary bold" onClick={handleDelete}>
