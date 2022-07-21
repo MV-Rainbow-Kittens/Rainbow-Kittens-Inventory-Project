@@ -55,6 +55,8 @@ function Update() {
 
 
 
+
+
     const updateUser = async (updatedUser) => {
         try {
             const res = await fetch(`http://localhost:8000/api/users/update/${id}`, {
@@ -92,7 +94,7 @@ function Update() {
 
     // console.log(upId);
 
-    const count = 1
+    // const count = 1
 
     return (
         <div className="bodyUp">
@@ -208,5 +210,7 @@ function Update() {
         </div>
     );
 }
+
 //update
+
 export default Update;
