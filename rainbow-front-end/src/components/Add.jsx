@@ -164,10 +164,10 @@ function Add() {
                             />
                         </div>
                     </div>
+                    <button className="buttonUpSave">Save</button>
                 </form>
                 <div className="button-upD">
                     <button className="buttonUpCanc" onClick={() => navigate("/admin")}>Cancel</button>
-                    <button className="buttonUpSave">Save</button>
                 </div>
             </div>
         </div>
