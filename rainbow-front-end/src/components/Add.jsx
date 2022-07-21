@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Update.css";
-
+import { toast } from "react-toastify";
 function Add() {
     const navigate = useNavigate();
 
@@ -48,6 +48,15 @@ function Add() {
             avatar,
             projects: project,
         };
+        toast.success(`${fName} has been addeted to the database`, {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         addUser(newUser);
         setFName("");
         setLName("");
@@ -150,10 +159,10 @@ function Add() {
 
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" 
-                            value={project} 
-                            onChange={(e) => { setProject(e.target.value) }} 
-                            disabled
+                            <input type="text"
+                                value={project}
+                                onChange={(e) => { setProject(e.target.value) }}
+                                disabled
                             />
 
                         </div>
@@ -168,7 +177,7 @@ function Add() {
                             />
                         </div>
                     </div>
-                    <button className="buttonUpSave">Save</button>
+                    {/* <button className="buttonUpSave">Save</button> */}
                 </form>
                 <div className="button-upD">
                     <button className="buttonUpSave" onClick={handleSubmit}>Save</button>

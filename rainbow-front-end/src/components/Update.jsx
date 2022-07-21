@@ -37,6 +37,7 @@ function Update() {
     //So that our form will have values  that will need to be updated
 
 
+
     /* * fetch function end here * */
     const getUser = async () => {
         const res = await fetch(api);
@@ -71,19 +72,26 @@ function Update() {
         } catch (error) {
             console.log(error.message);
         }
-        navigate('/admin')
     };
 
     const upId = id
-
     //we want to use this function in the save button. Once we click we want this function tu run
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedUser = {
-
             first_name, last_name, email, password, profile_pic, job_title, location, avatar
         }
         updateUser(updatedUser);
+        toast.success(`Emplpyee id no. ${id} have been updated`, {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        navigate("/admin");
     };
 
     /*  * end of handleSubmit() *  */
@@ -180,7 +188,7 @@ function Update() {
                         </div>
                         <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} disabled/>
+                            <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} disabled />
                         </div>
                         {/* {projects.map(proj => 
                             <div className='input-box-update'>
@@ -199,8 +207,9 @@ function Update() {
                             />
                         </div>
                     </div>
+
                     <div className="button-upD">
-                        <button className="buttonUpSave">Save</button>
+                        <button className="buttonUpSave" onClick={handleSubmit}>Save</button>
                         <button className="buttonUpCanc" onClick={() => navigate("/admin")}>Cancel</button>
                     </div>
                 </form>

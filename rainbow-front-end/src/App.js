@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import Add from './components/Add';
 import About from './components/About';
 import Navbar from './components/Navbar';
-
+import 'react-toastify/dist/ReactToastify.css'
 
 
 function App() {

@@ -11,17 +11,17 @@ export default function Pop({ open, onClose, id, image, navigate }) {
 
     const handleDelete = () => {
         axios.delete(api).then((res) => {
-            // toast.success(`Item no. ${id} has been deleted`, {
-            //     position: "top-center",
-            //     autoClose: 4000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: true,
-            //     draggable: true,
-            //     progress: undefined,
-            // });
-            window.location.reload(true);
-            // navigate('/admin')
+            toast.success(`User id no. ${id} has been deleted in the database`, {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            // window.location.reload(true);
+            });
+            navigate('/')
         });
     };
 
