@@ -86,3 +86,8 @@ form .user-details-update .input-box-update {
     color: rgb(234, 240, 228);
 }
 
+@media(max-width: 760px){
+    .bodyUp{
+        display: none;
+    }
+}

@@ -1,9 +1,21 @@
-import React from "react"
+//Responsive
 
-function PageNotFound () {
+import React from "react"
+import '../css/PGN.css'
+
+
+function PageNotFound() {
     return (
-        <div><h1><strong>PAGE NOT FOUND</strong></h1></div>
+        <div className="mainPNF">
+            <div className="PNF">
+                <h1>
+                    <strong>PAGE  NOT  FOUND</strong>
+                </h1>
+            </div>
+        </div>
     )
 }
 
-export default  PageNotFound
+export default PageNotFound
+
+
