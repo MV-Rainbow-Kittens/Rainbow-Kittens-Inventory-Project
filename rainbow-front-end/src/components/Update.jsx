@@ -36,7 +36,7 @@ function Update() {
     //This function is only fetching data and passing their value to the states
     //So that our form will have values  that will need to be updated
 
-    
+
     /* * fetch function end here * */
     const getUser = async () => {
         const res = await fetch(api);
@@ -52,7 +52,9 @@ function Update() {
 
     };
 
-        // setProject(data.singleUser.projects);
+
+
+
 
 
     const updateUser = async (updatedUser) => {
@@ -63,7 +65,7 @@ function Update() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(updatedUser),
-                
+
             });
             const data = await res.json();
         } catch (error) {
@@ -72,20 +74,15 @@ function Update() {
         navigate('/admin')
     };
 
+    const upId = id
+
     //we want to use this function in the save button. Once we click we want this function tu run
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedUser = {
 
-            first_name,
-            last_name,
-            email,
-            password,
-            profile_pic,
-            job_title,
-            location,
-            avatar,
-        };
+            first_name, last_name, email, password, profile_pic, job_title, location, avatar
+        }
         updateUser(updatedUser);
     };
 
@@ -130,7 +127,6 @@ function Update() {
                                     setLName(e.target.value);
                                 }}
                             />
-
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Email</label>
@@ -142,7 +138,6 @@ function Update() {
                                 }}
                             />
                         </div>
-
                         <div className="input-box-update">
                             <label className="detailsUp">Picture</label>
                             <input
@@ -162,7 +157,6 @@ function Update() {
                                     setJob(e.target.value);
                                 }}
                             />
-
                         </div>
                         <div className="input-box-update">
                             <label className="detailsUp">Avatar</label>
@@ -188,14 +182,12 @@ function Update() {
                             <label className='detailsUp'>Project</label>
                             <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
                         </div> */}
-
                         {/* {projects.map(proj => 
                             <div className='input-box-update'>
                                 <label>Projects :  </label>
                                 <input type="text" value={proj.projects}  />
                             </div>
                             )} */}
-
                         <div className="input-box-update">
                             <label className="detailsUp">Password</label>
                             <input
@@ -205,21 +197,20 @@ function Update() {
                                     setPassword(e.target.value);
                                 }}
                             />
-
                         </div>
                     </div>
-                    <button className="buttonUpSave">Save</button>
+                    <div className="button-upD">
+                        <button className="buttonUpSave">Save</button>
+                        <button className="buttonUpCanc" onClick={() => navigate("/admin")}>Cancel</button>
+                    </div>
                 </form>
                 <div className="button-upD">
-                    <button className="buttonUpCanc" onClick={() => navigate("/admin")}>
-                        Cancel
-                    </button>
                 </div>
             </div>
         </div>
     );
 }
 
-
+//update
 
 export default Update;

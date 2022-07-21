@@ -45,7 +45,6 @@ function Admin() {
 
     return (
         <div className="adminCont">
-            <div className="admin_nav">Admin Page</div>
             <div className="headAdm">
                 <button id="addAdmin" onClick={() => navigate("/add")}>
                     add
@@ -54,43 +53,37 @@ function Admin() {
                     <strong>X</strong>
                 </h1>
             </div>
-            {apiData.map((disp) => (
-                <div key={disp.id} className="adDataDiv">
-                    <from id="form">
-
-                        <label className="labelClass">First Name : </label>
-                        <input
-                            type="text"
-                            value={disp.first_name}
-                            readOnly
-                            className="inputClass"
-                        />
-                        <label className="labelClass"> Last Name : </label>
-                        <input
-                            type="text"
-                            value={disp.last_name}
-                            readOnly
-                            className="inputClass"
-                        />
-
-
+            <div className="formDiv">
+                {apiData.map((disp) => (
+                    <div key={disp.id} className="adDataDiv">
+                        <from id="form">
+                            <label className="labelClass">First Name : </label>
+                            <input
+                                type="text"
+                                value={disp.first_name}
+                                readOnly
+                                className="inputClass"
+                            />
+                            <label className="labelClass"> Last Name : </label>
+                            <input 
+                                type="text"
+                                value={disp.last_name}
+                                readOnly
+                                className="inputClass"
+                            />
+                        </from>
                         <div id="adBtnDiv">
-                            <button onClick={() => navigate(`/update/${disp.id}`)}>
-                                update
-                            </button>
-                            <button
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    delePg();
-                                    setId(disp.id);
-                                }}
-                            >
-                                delete
-                            </button>
+                            <button onClick={() => navigate(`/update/${disp.id}`)}>update</button>
+                            <button onClick={(e) => {
+                                e.preventDefault();
+                                delePg();
+                                setId(disp.id);
+                            }}
+                            > delete </button>
                         </div>
-                    </from>
-                </div>
-            ))}
+                    </div>
+                ))}
+            </div>
             <Delete
                 open={delState}
                 onClose={() => setDelState(false)}

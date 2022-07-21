@@ -23,7 +23,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-
       <Navbar />
           <Routes>
             <Route path='/*' element={<PageNotFound />} />
@@ -36,7 +35,6 @@ function App() {
             <Route path='/add' element={<Add />} />
             <Route path='/about' element={<About />} />
           </Routes>
-
       </BrowserRouter>
       <ToastContainer />
     </div>
