@@ -1,0 +1,20 @@
+
+
+.PNF{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* margin-top: 200px; */
+    padding-top: 200px;
+}
+
+
+.mainPNF{
+    background-image: linear-gradient(to right, #870000, #190a05);
+    height: 850px;
+    color: floralwhite;
+}
+
+
+/* Responsive */
