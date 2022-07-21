@@ -49,7 +49,7 @@ function Update() {
         setLocation(data.singleUser.location);
         setAvatar(data.singleUser.avatar);
         setPassword(data.singleUser.password);
-
+        setProject(data.singleUser.projects);
     };
 
 
@@ -178,10 +178,10 @@ function Update() {
                                 }}
                             />
                         </div>
-                        {/* <div className='input-box-update'>
+                        <div className='input-box-update'>
                             <label className='detailsUp'>Project</label>
-                            <input type="text" value={project} onChange={(e) => { setProject(e.target.value) }} disabled/>
-                        </div> */}
+                            <input type="text" value={projects} onChange={(e) => { setProject(e.target.value) }} disabled/>
+                        </div>
                         {/* {projects.map(proj => 
                             <div className='input-box-update'>
                                 <label>Projects :  </label>
